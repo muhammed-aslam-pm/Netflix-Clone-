@@ -3,6 +3,7 @@ import 'package:netflix/database/database.dart';
 import 'package:netflix/utils/color_constant/color_constant.dart';
 import 'package:netflix/utils/image_constant/imageconstant.dart';
 import 'package:netflix/view/home_screen/widgets/categories.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -15,13 +16,28 @@ class HomeScreen extends StatelessWidget {
         children: [
           Stack(
             children: [
+              CarouselSlider.builder(
+                  itemCount: Database.homeScreenPosters.length,
+                  itemBuilder: (context, index, realIndex) => Container(
+                        height: 440,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image:
+                                  AssetImage(Database.homeScreenPosters[index]),
+                              fit: BoxFit.cover),
+                        ),
+                      ),
+                  options: CarouselOptions(
+                      viewportFraction: 1, height: 440, autoPlay: true)),
               Container(
-                height: 415,
+                height: 440,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(ImageConstant.homeBackground),
-                      fit: BoxFit.cover),
+                  gradient: LinearGradient(colors: [
+                    Colors.black.withOpacity(0.8),
+                    Colors.transparent
+                  ], begin: Alignment.bottomCenter, end: Alignment.topCenter),
                 ),
               ),
               Positioned(
@@ -101,12 +117,12 @@ class HomeScreen extends StatelessWidget {
               ),
               Positioned(
                 left: 129,
-                top: 388,
+                top: 415,
                 child: SizedBox(
                   height: 20,
                   width: 200,
                   child: Text(
-                    "#2 in Nigeria Today",
+                    "#2 in India Today",
                     style: TextStyle(
                         color: ColorConstant.PrimaryTextColor,
                         fontSize: 18,

@@ -22,8 +22,8 @@ class CategoriesCard extends StatelessWidget {
                 fontWeight: FontWeight.w700,
                 color: ColorConstant.PrimaryTextColor),
           ),
-          const SizedBox(
-            height: 14,
+          SizedBox(
+            height: Database.categories[index]["shape"] == "circle" ? 0 : 14,
           ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
@@ -82,8 +82,8 @@ class CategoriesCard extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 22,
+          SizedBox(
+            height: Database.categories[index]["shape"] == "circle" ? 0 : 22,
           ),
         ],
       ),

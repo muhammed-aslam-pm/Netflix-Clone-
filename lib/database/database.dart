@@ -175,4 +175,10 @@ class Database {
       "gener": ["Fantacy", "Scyfi", "Slow Burn", "Fast"]
     }
   ];
+  static List<String> homeScreenPosters = [
+    "assets/images/dare devil.jpg",
+    "assets/images/money heist.jpg",
+    "assets/images/peaky Blinders.jpg",
+    "assets/images/god father.jpg"
+  ];
 }
